@@ -1,6 +1,5 @@
 # app
 
-**!!!Use kebab-case for page names!!!**
 ```bash
 # GENERATE A ROOT PAGE
 npm run genpage -- -r page-name
