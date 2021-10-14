@@ -1,12 +1,16 @@
+import IUser from "../models/user.interface";
+import CrudRepository from "./crud.repository";
+import { UserSql } from '../repository/sql/customer.sql'
 
-class Customersrepository {
+class Customersrepository extends CrudRepository {
   
-  constructor() { }
+  constructor() { 
+    super();
+  }
   
-  public async getUser(id: string) {
-    
-
-    throw new Error('Method not implemented.');
+  public async getUser(user: string, password: string): Promise<IUser | null> {
+    const validateUser = await this.executeQuery<IUser>(UserSql.getUser, [user, password]);
+    return validateUser[0];
   }
 
 

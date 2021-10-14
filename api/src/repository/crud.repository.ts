@@ -10,7 +10,8 @@ class CrudRepository {
     let conn;
     try {
       conn = await connect();
-      res = await conn.query(sql, params);
+      const result = await conn.query(sql, params);
+      res = result?.[0] ? result[0] : null;
 
     } catch (err) {
       console.error(`Error en ${this.className} => get`, err);
