@@ -26,7 +26,6 @@ export class AuthService extends CrudService {
             this.token = await this.post({ email, password });
             this.storage.save(AUTH_TOKEN, this.token);
             return this.redirectUrl;
-            
         } catch (error) {
             console.error('Error during login request', error);
             return Promise.reject(error);
